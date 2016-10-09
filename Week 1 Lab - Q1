@@ -1,0 +1,15 @@
+<script>
+
+var array = [5,3,8,6,1,9,2,7];
+
+var i = array.length, j, temp;
+
+while(--i > 0){
+    j = Math.floor(math.random() *(i+1));
+    temp = array[i];
+    array[j] = array[i];
+    array[i] = temp[i]    
+
+}
+
+</script>
