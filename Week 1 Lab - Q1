@@ -8,8 +8,7 @@ while(--i > 0){
     j = Math.floor(math.random() *(i+1));
     temp = array[i];
     array[j] = array[i];
-    array[i] = temp[i]    
-
+    array[i] = temp;    
 }
 
 </script>
