@@ -3,33 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package weekonelab;
+package shufflearray;
 
 /**
  *
  * @author Ahmed
  */
+
+
 public class FisherYates {
 
-    public static void shuffle(Object[] array) {
-        int unshuffledArray = array.length;
-        for (int i = 0; i < unshuffledArray; i++) {
-            int s = i + (int) (Math.random() * (unshuffledArray - i));
-
-            Object temp = array[s];
-            array[s] = array[i];
-            array[i] = temp;
-
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Object [] Numbers = {1,2,3,4,5,6,7};
+        Shuffle(Numbers);
+        
+        for (int i = 0; i < Numbers.length; i++) {
+            System.out.println(Numbers[i]);
+            
         }
     }
-    public static void main(String[] args) {
+    
+    
+    
+    
+    public static void Shuffle(Object[] array) {
         
-        String[] num_array = {"5","3","8","6","1","9","2","7"};
+        int ElementsInArray = array.length;
         
-        FisherYates.shuffle(num_array);
-        
-        for (int i = 0; i < num_array.length; i++) {
-            System.out.print(num_array[i] + " ");
+        for (int i = 0; i < array.length; i++){
+            
+            int Random = i + (int)(Math.random()* (ElementsInArray - i));
+            
+            Object TempElement = array[Random];
+            array[Random] = array[i];
+            array[i] = TempElement;
+            
         }
     }
 }
