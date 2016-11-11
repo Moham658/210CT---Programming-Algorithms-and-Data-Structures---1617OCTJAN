@@ -3,7 +3,7 @@ def factorial(n):
     while n >= 1:
         result = result * n
         n = n - 1
-    return(int(lower))
+    return(int(result))
 
 
 def trailing_zeroes(n):
@@ -12,4 +12,6 @@ def trailing_zeroes(n):
     return len(numString)-len(numString.rstrip('0'))
 
 
-print(trailing_zeroes(100))
+
+
+print(trailing_zeroes(1000))
