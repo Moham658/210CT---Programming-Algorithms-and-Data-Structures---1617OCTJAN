@@ -6,7 +6,7 @@ def factorial(n):
     return(int(lower))
 
 
-def trailing_zeros(n):
+def trailing_zeroes(n):
     reduce = factorial(n)
     zeroes = 0
     while x % 10 ==0:
