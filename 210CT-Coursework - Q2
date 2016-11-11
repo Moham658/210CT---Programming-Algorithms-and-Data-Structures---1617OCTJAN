@@ -1,15 +1,15 @@
 def factorial(n):
-    lower = 1
+    result = 1
     while n >= 1:
-        lower = lower * n
+        result = result * n
         n = n - 1
     return(int(lower))
 
 
 def trailing_zeroes(n):
-    check = factorial(n)
-    zeroes = 0
-    while check % 10 == 0:
-        zeroes += 1
-        check = check/10
-    return(zeroes)
+    fact_of_n = factorial(n)
+    numString = str(fact_of_n)
+    return len(numString)-len(numString.rstrip('0'))
+
+
+print(trailing_zeroes(100))
