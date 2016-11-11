@@ -7,10 +7,9 @@ def factorial(n):
 
 
 def trailing_zeroes(n):
-    reduce = factorial(n)
+    check = factorial(n)
     zeroes = 0
-    while x % 10 ==0:
+    while check % 10 == 0:
         zeroes += 1
-        x = x/10
+        check = check/10
     return(zeroes)
-
