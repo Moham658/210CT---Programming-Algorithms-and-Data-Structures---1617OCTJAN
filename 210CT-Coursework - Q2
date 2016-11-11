@@ -1,0 +1,16 @@
+def factorial(n):
+    lower = 1
+    while n >= 1:
+        lower = lower * n
+        n = n - 1
+    return(int(lower))
+
+
+def trailing_zeros(n):
+    reduce = factorial(n)
+    zeroes = 0
+    while x % 10 ==0:
+        zeroes += 1
+        x = x/10
+    return(zeroes)
+
