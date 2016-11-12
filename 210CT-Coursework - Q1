@@ -28,15 +28,14 @@ public class FisherYates {
     }
     
     
-    
-    
+   
     public static void Shuffle(Object[] array) {
         
         int ElementsInArray = array.length;
         
         for (int i = 0; i < array.length; i++){
             
-            int Random = i + (int)(Math.random()* (ElementsInArray - i));
+            int Random = (int)(Math.random()* (ElementsInArray - 1));
             
             Object TempElement = array[Random];
             array[Random] = array[i];
