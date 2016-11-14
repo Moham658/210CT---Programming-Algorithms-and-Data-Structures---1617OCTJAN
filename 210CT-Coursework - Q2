@@ -31,13 +31,10 @@ def trailing_zeroes(n):
 
 #---------------------------------------------------------------------------------
 # prints the value of the factorial/trailing zeroes but avoids errors when calculating other than integers 
-try:
-    if trailing_zeroes(get_num) == 0:
-        print('\n')
-        
-    else:
-        print('\n' + "Factorial of",get_num,"=" +'\n'+str(factorial(get_num))+'\n')
-        print("Trailing zeroes after " + str(get_num) + "! = ",(trailing_zeroes(get_num)))
+try: 
+    
+    print('\n' + "Factorial of",get_num,"=" +'\n'+str(factorial(get_num))+'\n')
+    print("Trailing zeroes after " + str(get_num) + "! = ",(trailing_zeroes(get_num)))
     
 except NameError:
     print('\n')
