@@ -15,6 +15,11 @@ except ValueError:
 def factorial(n):
     """Returns the factorial such that if the input = 5, the output would equal to 5x4x3x2x1"""
     result = 1
+
+    # if statement used to return a meaningless variable in order to stop negative numbers from being calculated in section 4
+    if n <= 0:
+        return (x)
+
     while n >= 1:
         result = result * n
         n = n - 1
