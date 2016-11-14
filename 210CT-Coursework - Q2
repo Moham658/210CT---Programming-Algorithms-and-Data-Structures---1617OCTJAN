@@ -1,17 +1,45 @@
+#---------------------------------------------------------------------------------
+# Avoiding Errors inside of the expected integer input i.e. 13fwq2 or a negative number
+try:
+    get_num = int(input("Enter any integer greater than 0 to get the trailing zeroes of its factorial: "))
+    if get_num <= 0:
+        print("Thats not greater than 0, please try again")
+        
+        
+except ValueError:
+        print("Oops, thats not an integer, please try again")
+        
+      
+#---------------------------------------------------------------------------------
+# calculating the factorial of the input
 def factorial(n):
+    """Returns the factorial such that if the input = 5, the output would equal to 5x4x3x2x1"""
     result = 1
     while n >= 1:
         result = result * n
         n = n - 1
-    return(int(result))
+    return(result)
 
-
+#---------------------------------------------------------------------------------
+# counting the number of zeroes at the end of the factorial of the input
 def trailing_zeroes(n):
+    """Returns the number of zeroes at the end of a number, if input = 1000 then output = 3"""
     fact_of_n = factorial(n)
     numString = str(fact_of_n)
+    # .rstrip strips the end of the string of the character within the parenthesis
     return len(numString)-len(numString.rstrip('0'))
 
-
-
-
-print(trailing_zeroes(1000))
+#---------------------------------------------------------------------------------
+# prints the value of the factorial/trailing zeroes but avoids errors when calculating other than integers 
+try:
+    if trailing_zeroes(get_num) == 0:
+        print('\n')
+        
+    else:
+        print('\n' + "Factorial of",get_num,"=" +'\n'+str(factorial(get_num))+'\n')
+        print("Trailing zeroes after " + str(get_num) + "! = ",(trailing_zeroes(get_num)))
+    
+except NameError:
+    print('\n')
+    
+#---------------------------------------------------------------------------------
