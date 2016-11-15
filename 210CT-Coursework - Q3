@@ -1,15 +1,15 @@
 from math import sqrt #sqrt finds the square root of numbers
 
 #-----------------------------------*SECTION 1*-----------------------------------
-# Avoiding Errors inside of the expected integer input i.e. 13fwq2 or a negative number
+# Avoiding Errors inside of the expected number input i.e. 13fwq2 or a negative number
 try:
-    get_num = float(input("Enter any integer greater than 0 to get the highest closest square to the input: "))
+    get_num = float(input("Enter any number greater than 0 to get the highest perfect square to the input: "))
     if get_num <= 0:
         print("Thats not greater than 0, please try again")
         
         
 except ValueError:
-        print("Oops, thats not an integer, please try again")
+        print("Oops, thats not an number, please try again")
         
       
 #-----------------------------------*SECTION 2*-----------------------------------
@@ -44,7 +44,8 @@ def findHighestSquare(n):
 #-----------------------------------*SECTION 3*-----------------------------------
 # prints the value of the Highest square but avoids errors when calculating other than positive numbers 
 try:
-    print(findHighestSquare(get_num))
+    print('\n' + "Highest perfect square  = " + '\n' + str(findHighestSquare(get_num)))
+    print('\n' + "Where Perfect square = " + str(int(sqrt(findHighestSquare(get_num)))) + " x " + str(int(sqrt(findHighestSquare(get_num)))))
     
 except NameError:
     print('\n')
