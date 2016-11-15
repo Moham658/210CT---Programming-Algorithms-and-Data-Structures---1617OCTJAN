@@ -2,7 +2,7 @@ try:
     n = int(input("Please Enter a number between 1 to 1954 to see if its a prime: "))
 
     def isPrime(n, l = True):
-        
+        """Find Prime Recursively"""
         try:
 
             if n <= 0:
@@ -27,3 +27,6 @@ try:
 
 except ValueError:
     print("Input a valid Number")
+
+
+
