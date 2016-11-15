@@ -1,0 +1,53 @@
+from math import sqrt #sqrt finds the square root of numbers
+
+#-----------------------------------*SECTION 1*-----------------------------------
+# Avoiding Errors inside of the expected integer input i.e. 13fwq2 or a negative number
+try:
+    get_num = float(input("Enter any integer greater than 0 to get the highest closest square to the input: "))
+    if get_num <= 0:
+        print("Thats not greater than 0, please try again")
+        
+        
+except ValueError:
+        print("Oops, thats not an integer, please try again")
+        
+      
+#-----------------------------------*SECTION 2*-----------------------------------
+# calculating the factorial of the input
+def findHighestSquare(n):
+
+    
+    # if statement used to return a meaningless variable in order to stop negative numbers from being calculated in section 3
+    if n <= 0:
+        return (x)
+  
+    """Calculates the highest perfect square which is less or equal to its parameter"""
+    root_n = sqrt(n)  #calculate the square root of the number
+
+    floor_of_sqrt = int(root_n) # Round the square root to the lower integer (One level down)
+    ceil_of_sqrt  = floor_of_sqrt + 1 # Round the square root to the higher integer (One level up)
+
+    floor_square  = floor_of_sqrt**2 #Square both rounded numbers to get the Perfect Square Value
+    ceil_square   = ceil_of_sqrt**2
+
+    
+    """Calculate closest square number to the original parameter(n) to return it"""
+    floor_comparison = n - floor_square
+    ceil_comparison  = ceil_square - n
+
+    if floor_comparison < ceil_comparison:
+      return floor_square
+
+    else:
+      return ceil_square
+    
+#-----------------------------------*SECTION 3*-----------------------------------
+# prints the value of the Highest square but avoids errors when calculating other than positive numbers 
+try:
+    print(findHighestSquare(get_num))
+    
+except NameError:
+    print('\n')
+
+    
+#---------------------------------------------------------------------------------
