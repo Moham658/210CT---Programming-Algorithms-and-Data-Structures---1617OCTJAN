@@ -14,7 +14,7 @@ except ValueError:
       
 #-----------------------------------*SECTION 2*-----------------------------------
 # calculating the factorial of the input
-def findHighestSquare(n):
+def highestPerfectSquare(n):
     """Calculates the highest perfect square which is less or equal to its parameter"""
     
     # if statement used to return a meaningless variable in order to stop negative numbers from being calculated in section 3
@@ -44,9 +44,9 @@ def findHighestSquare(n):
 #-----------------------------------*SECTION 3*-----------------------------------
 # prints the value of the Highest square but avoids errors when calculating other than positive numbers 
 try:
-    print('\n' + "Highest perfect square  = " + '\n' + str(findHighestSquare(get_num)))
+    print('\n' + "Highest perfect square  = " + '\n' + str(highestPerfectSquare(get_num)))
 
-    sqrt_highest = str(int(sqrt(findHighestSquare(get_num)))) # square root of the highest perfect square
+    sqrt_highest = str(int(sqrt(highestPerfectSquare(get_num)))) # square root of the highest perfect square
     
     print('\n' + "Where Perfect square = " + sqrt_highest + " x " + sqrt_highest )
     
