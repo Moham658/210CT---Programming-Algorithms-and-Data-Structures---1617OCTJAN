@@ -1,4 +1,4 @@
-get_string = input("Please enter a sentence you would like to reverse: "+'\n'+'\n')
+get_string = input("Please enter a sentence you would like to reverse: " + '\n' + '\n')
 
 #---------------------------------------------------------------------------------
 
@@ -11,8 +11,8 @@ def reverseSentence(s):
             words += i # then add the character to words to make up that word         
             
         else: # when a space is reached
-            result = words + ' ' + result # add the word to the result where the result is equal to the word
-            words = '' # delete the old word so that only the end of the result is equal to the word
+            result = words + ' ' + result # add word to result so end of result is equal to the word
+            words = '' # delete old word so that only the end of the result is equal to the word
             
     result = words + ' ' + result # update result 
     return result
