@@ -14,7 +14,7 @@ def addMatrices(A, B):
         row = []
         for j in range(len(A[0])):  #for loop that iterates through each element inside of rows
             row.append(A[i][j]+B[i][j]) # adding row Elements of A to Elements of B and appending to row list
-        result.append(row) #appending result list to give indivdual rows to create result matrix (list of lists)
+        result.append(row) #adding indivual rows to result as lists to maintain matrix format (list of lists)
         
     return result
 
