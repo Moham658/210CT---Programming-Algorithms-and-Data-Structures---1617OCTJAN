@@ -1,23 +1,31 @@
-try:
-    n = int(input("Please Enter a number between 1 to 1954 to see if its a prime: "))
+try: # catch any errors where input is not an integer
+    n = int(input("Please Enter an integer between 1 to 1954 to see if its a prime: "))
 
-    def isPrime(n, l = True):
-        """Find Prime Recursively"""
-        try:
+    def isPrime(n, d = True): # l is the divisor with need of input
+        
+        """Find if integer is Prime Recursively"""
+        
+        try:    # catch any errors where input does not exceed recursion limit
 
-            if n <= 0:
-                print("Number has to be greater than 0, please try again")
+            if n <= 0: # Integer has to be positive
+                print("integer has to be greater than 0, please try again")
                 return
             
-            if l is True:
-                l = n - 1
-            while l >= 2:
-                if n % l == 0:
+            if n == 1: 
+                print (str(n) + ' is not a prime.')
+                return
+            
+            
+            if d is True: 
+                d = n - 1 # sets divisor one below input
+                
+            while d >= 2: # divides input between input -1 downto 2
+                if n % d == 0: # checks to see if input is not a prime
                     print (str(n) + ' is not a prime.')
-                    break
+                    break # needed since divisor will always be greater than 1
                 else:
-                    return isPrime(n, l-1)
-            else:
+                    return isPrime(n, d-1) # recursion to iterate downto
+            else: # if input has no remainders then its a prime
                 print (str(n) + ' is a prime.')
                 
         except RecursionError:
@@ -26,7 +34,4 @@ try:
     isPrime(n)
 
 except ValueError:
-    print("Input a valid Number")
-
-
-
+    print("Input a valid integer")
