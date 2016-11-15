@@ -1,20 +1,29 @@
-n = int(input("Please Enter a number between 1 to 1954 to see if its a prime: "))
+try:
+    n = int(input("Please Enter a number between 1 to 1954 to see if its a prime: "))
 
-def isPrime(n, l = True):
-    """Recursive primality test"""
+    def isPrime(n, l = True):
+        
+        try:
 
-    try: 
-        if l is True:
-            l = n - 1
-        while l >= 2:
-            if n % l == 0:
-                print (str(n) + ' is not a prime.')
-                break
+            if n <= 0:
+                print("Number has to be greater than 0, please try again")
+                return
+            
+            if l is True:
+                l = n - 1
+            while l >= 2:
+                if n % l == 0:
+                    print (str(n) + ' is not a prime.')
+                    break
+                else:
+                    return isPrime(n, l-1)
             else:
-                return isPrime(n, l-1)
-        else:
-            print (str(n) + ' is a prime.')   
-    except RecursionError or ValueError:
-        print("Input a valid Number")
+                print (str(n) + ' is a prime.')
+                
+        except RecursionError:
+            print("Recursive code has a limit when calling itself, enter between 1 to 1954")
 
-isPrime(n)
+    isPrime(n)
+
+except ValueError:
+    print("Input a valid Number")
