@@ -1,0 +1,22 @@
+A = [[3,5,9],
+     [13 ,10,3],
+     [17,4,5]]
+
+B = [[10,16,3],
+     [2,13,67],
+     [21,14,3]]
+
+
+
+def addMatrices(A, B):
+    """Addition function that adds two matrices"""
+    result = [] 
+   
+    for i in range(len(A)):  #for loop that iterates through rows of matrices (individual lists within list)
+        for j in range(len(A[0])):  #for loop that iterates through each element inside of rows
+            result.append(A[i][j]+B[i][j]) # adding row Elements of A to Elements of B and appending to result list
+        
+    return result
+
+
+print(addMatrices(A, B))
