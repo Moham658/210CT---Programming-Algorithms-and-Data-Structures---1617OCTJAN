@@ -1,0 +1,24 @@
+get_string = input("Please enter a sentence you would like to reverse: "+'\n'+'\n')
+
+#---------------------------------------------------------------------------------
+
+def reverseSentence(s):
+    """Function that reverse words in a sentence"""
+    result = ''
+    words = ''
+    for i in s: #iterates through each character in the sentence
+        if i != ' ':  # if the character is not equal to a space
+            words += i # then add the character to words to make up that word         
+            
+        else: # when a space is reached
+            result = words + ' ' + result # add the word to the result where the result is equal to the word
+            words = '' # delete the old word so that only the end of the result is equal to the word
+            
+    result = words + ' ' + result # update result 
+    return result
+
+#---------------------------------------------------------------------------------
+
+print(reverseSentence(get_string))
+
+#---------------------------------------------------------------------------------
