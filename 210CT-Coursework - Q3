@@ -15,13 +15,13 @@ except ValueError:
 #-----------------------------------*SECTION 2*-----------------------------------
 # calculating the factorial of the input
 def findHighestSquare(n):
-
+    """Calculates the highest perfect square which is less or equal to its parameter"""
     
     # if statement used to return a meaningless variable in order to stop negative numbers from being calculated in section 3
     if n <= 0:
         return (x)
   
-    """Calculates the highest perfect square which is less or equal to its parameter"""
+    
     root_n = sqrt(n)  #calculate the square root of the number
 
     floor_of_sqrt = int(root_n) # Round the square root to the lower integer (One level down)
@@ -31,7 +31,7 @@ def findHighestSquare(n):
     ceil_square   = ceil_of_sqrt**2
 
     
-    """Calculate closest square number to the original parameter(n) to return it"""
+    """Compares closest square number to the original parameter(n) to return it"""
     floor_comparison = n - floor_square
     ceil_comparison  = ceil_square - n
 
