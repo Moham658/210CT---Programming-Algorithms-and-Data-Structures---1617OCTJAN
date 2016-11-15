@@ -45,10 +45,16 @@ def findHighestSquare(n):
 # prints the value of the Highest square but avoids errors when calculating other than positive numbers 
 try:
     print('\n' + "Highest perfect square  = " + '\n' + str(findHighestSquare(get_num)))
-    print('\n' + "Where Perfect square = " + str(int(sqrt(findHighestSquare(get_num)))) + " x " + str(int(sqrt(findHighestSquare(get_num)))))
+
+    sqrt_highest = str(int(sqrt(findHighestSquare(get_num)))) # square root of the highest perfect square
+    
+    print('\n' + "Where Perfect square = " + sqrt_highest + " x " + sqrt_highest )
     
 except NameError:
     print('\n')
 
     
 #---------------------------------------------------------------------------------
+
+
+
