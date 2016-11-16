@@ -1,0 +1,13 @@
+string = input("Input string to remove its vowels: ")
+
+def removeVowels(string):
+    """Function removes vowels from sentence"""
+
+    if string == '': # empty string to avoid IndexError
+        return 'Enter a string' + '\n'
+    
+    elif string[0] in "AaEeIiOoUu": # if first character has a vowel
+        return removeVowels(string[1:]) # remove character and process characters after it
+    return string[0:] + removeVowels(string[1:]) # if no vowels return string character
+
+print(removeVowels(string))
