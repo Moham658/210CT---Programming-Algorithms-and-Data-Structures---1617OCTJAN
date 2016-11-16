@@ -15,7 +15,7 @@ try: # catch any errors where input is not an integer
             #-------------------------------------*Section 4*---------------------
 
             if n <= 0: # Integer has to be positive
-                print("integer has to be greater than 0, please try again")
+                print("Negative Numbers cannot be prime")
                 return
             
             if n == 1: 
