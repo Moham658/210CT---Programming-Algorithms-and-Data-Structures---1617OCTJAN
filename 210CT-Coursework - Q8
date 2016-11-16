@@ -1,4 +1,8 @@
+#---------------------------------------------------------------------------------
+
 get_string = input("Input string to remove its vowels: ")
+
+#---------------------------------------------------------------------------------
 
 def removeVowels(string):
     """Function removes vowels from sentence"""
@@ -10,5 +14,8 @@ def removeVowels(string):
         return removeVowels(string[1:]) # remove character and process characters after it
     return string[0] + removeVowels(string[1:]) # if no vowels return string character
 
+#---------------------------------------------------------------------------------
+
 print(removeVowels(get_string))
 
+#---------------------------------------------------------------------------------
