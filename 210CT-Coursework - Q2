@@ -1,5 +1,5 @@
 #-----------------------------------*SECTION 1*-----------------------------------
-# Avoiding Errors inside of the expected integer input i.e. 13fwq2 or a negative number
+# Make sure input is an integer
 try:
     get_num = int(input("Enter any integer greater than 0 to get the trailing zeroes of its factorial: "))
     if get_num <= 0:
@@ -16,7 +16,7 @@ def factorial(n):
     """Returns the factorial such that if the input = 5, the output would equal to 5x4x3x2x1"""
     result = 1
 
-    # if statement used to return a meaningless variable in order to stop negative numbers from being calculated in section 4
+# make sure negative numbers ignored
     if n <= 0:
         return (x)
 
@@ -26,24 +26,23 @@ def factorial(n):
     return(result)
 
 #-----------------------------------*SECTION 3*-----------------------------------
-# counting the number of zeroes at the end of the factorial of the input
-def trailing_zeroes(n):
+def trailingZeroes(n):
     """Returns the number of zeroes at the end of a number, if input = 1000 then output = 3"""
     fact_of_n = factorial(n)
-    numString = str(fact_of_n)
-    # .rstrip strips the end of the string of the character within the parenthesis
-    return len(numString)-len(numString.rstrip('0'))
+    num_string = str(fact_of_n)
+    # strip end of string 
+    return len(num_string)-len(num_string.rstrip('0'))
 
-#-----------------------------------*SECTION 4*-----------------------------------
-# prints the value of the factorial/trailing zeroes but avoids errors when calculating other than integers 
+#-----------------------------------*SECTION 4*------------------------------------
+# avoids errors when calculating other than integers 
 try:
-    if trailing_zeroes(get_num) == 0:
+    if trailingZeroes(get_num) == 0:
         print('\n' + "Factorial of",get_num,"=" +'\n'+str(factorial(get_num))+'\n')
         print("The are no trailing zeroes after " + str(get_num) + "!")
-        
+
     else:
-        print('\n' + "Factorial of",get_num,"=" +'\n'+str(factorial(get_num))+'\n')
-        print("Trailing zeroes after " + str(get_num) + "! = ",(trailing_zeroes(get_num)))
+        print('\n'+ "Factorial of",get_num,"=" +'\n'+str(factorial(get_num)) +'\n')        
+        print("Trailing zeroes after " + str(get_num) + "! = ",(trailingZeroes(get_num)))
     
 except NameError:
     print('\n')
