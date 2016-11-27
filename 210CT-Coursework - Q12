@@ -7,7 +7,7 @@ def in_order(tree):
           stack.append(tree)
           tree = tree.left
       elif stack != None:
-          if len(stack) == 0:
+          if len(stack) == 0: #avoids error removing from empty list
               break
           tree = stack.pop()
           print(tree.value)
