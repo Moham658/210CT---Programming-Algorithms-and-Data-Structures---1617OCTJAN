@@ -1,9 +1,11 @@
 def in_order(tree):
-    empty_stack = []
+  empty_stack = []
+  while empty_stack != None or tree != None:
     if tree != None:
-        empty_stack.append(tree)
-        tree = tree.left
-    elif len(empty_stack )!= 0:
+      empty_stack.append(tree)
+      tree = tree.left
+      
+    elif empty_stack != None:
         tree = empty_stack.pop()
         print(tree.value)
         tree = tree.right
