@@ -1,13 +1,14 @@
 def in_order(tree):
     
-  empty_stack = []
+  stack = []
   
-  while empty_stack != None:
+  while stack != None:
       if tree != None:
-          empty_stack.append(tree)
+          stack.append(tree)
           tree = tree.left
-      elif empty_stack != None and len(empty_stack) >= 0:
-          tree = empty_stack.pop()
+      elif stack != None:
+          if len(stack) == 0:
+              break
+          tree = stack.pop()
           print(tree.value)
           tree = tree.right
-          
