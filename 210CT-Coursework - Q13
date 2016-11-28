@@ -1,0 +1,9 @@
+class Node:
+    def __init__(self, Name):
+        self.name = Name
+
+
+class adjacencyMatrix:
+    nodes = {} # to store key, value similar to linked lists 
+    links = [] # to store nodes:links
+    links_weights = {} # to store nodes:links:weights (useful for later bfs/dfs should we need to change wieght values)
