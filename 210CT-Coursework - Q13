@@ -7,3 +7,21 @@ class adjacencyMatrix:
     nodes = {} # to store key, value similar to linked lists 
     links = [] # to store nodes:links
     links_weights = {} # to store nodes:links:weights (useful for later bfs/dfs should we need to change wieght values)
+
+    def addNodes(self, node):
+        if isinstance ((node, Node) and (node.name not in self.nodes)):
+            self.nodes[node.name]=node
+            for i in self.links:
+                i.append(0)
+            self.links([0] * (len(self.links)+1))
+            self.links_weights[vertex.name] = len(self.links_weights)
+
+
+    def addLinks (self, node1, node2, weight):
+        weight = 1
+        if (edge1 and edge2) not in self.nodes: #makes sure nodes exists before adding weight
+            return
+        else:
+            self.links[self.links_weights[edge1]][self.links_weights[edge2]] = weight # linking weight value to linked nodes
+            self.links[self.links_weights[edge2]][self.links_weights[edge1]] = weight
+
