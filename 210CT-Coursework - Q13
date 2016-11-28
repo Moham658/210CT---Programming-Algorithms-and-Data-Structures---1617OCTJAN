@@ -11,30 +11,52 @@ class adjacencyMatrix:
     links_weights = {} # to store nodes:links:weights (useful for later bfs/dfs should we need to change wieght values)
 
     def addNodes(self, node):
-        if isinstance ((node, Node) and (node.name not in self.nodes)):
+        if isinstance (node, Node) and node.name not in self.nodes:
             self.nodes[node.name]=node
             for i in self.links:
                 i.append(0)
-            self.links([0] * (len(self.links)+1))
-            self.links_weights[vertex.name] = len(self.links_weights)
+            self.links.append([0] * (len(self.links)+1))
+            self.links_weights[node.name] = len(self.links_weights)
 
 
-    def addLinks (self, node1, node2, weight):
-        weight = 1
-        if (edge1 and edge2) not in self.nodes: #makes sure nodes exists before adding weight
+    def addLinks (self, node1, node2, unweighted=1 ):
+        if (node1 and node2) not in self.nodes: #makes sure nodes exists before adding weight
             return
         else:
-            self.links[self.links_weights[edge1]][self.links_weights[edge2]] = weight # linking weight value to linked nodes
-            self.links[self.links_weights[edge2]][self.links_weights[edge1]] = weight
+            self.links[self.links_weights[node1]][self.links_weights[node2]] = weight # linking weight value to linked nodes
+            self.links[self.links_weights[node2]][self.links_weights[node1]] = weight
 
 
 
     def Display(self):
-        for i in sorted(self.edge_indices.items()):
-            for j in sorted(self.edge_indices.items()):
-                print(i + ' | ', end ='')
-                for k in range(len(self.links)):
-                    print(self.links[j][k], end='')
-                print('')
+        print('    ', end = '')
+        
+        for h, v in sorted(self.links_weights.items()):#prints single Node letters as the header
+            print('' + h, end=' ')
+            
+        first_space = 1
+        t = '-'
+        print('')
+        
+        for s in range(len(self.links)): # prints underscores seperate header from table
+            print('    '*first_space + t, end=' ')
+            first_space = 0
+        print('')
+        
+        for i, j in sorted(self.links_weights.items()):
+            print(i + ' | ', end ='')
+            for k in range(len(self.links)):
+                    print(self.links[j][k], end=' ')
+            print('')
+            
+
+
+g = adjacencyMatrix()
+a = Node('A')
+b = Node('B')
+g.addNodes(a)
+g.addNodes(b)
+g.addLinks(a,b)
+g.Display()  
     
     
