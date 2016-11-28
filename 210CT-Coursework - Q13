@@ -1,3 +1,5 @@
+
+
 class Node:
     def __init__(self, Name):
         self.name = Name
@@ -25,3 +27,14 @@ class adjacencyMatrix:
             self.links[self.links_weights[edge1]][self.links_weights[edge2]] = weight # linking weight value to linked nodes
             self.links[self.links_weights[edge2]][self.links_weights[edge1]] = weight
 
+
+
+    def Display(self):
+        for i in sorted(self.edge_indices.items()):
+            for j in sorted(self.edge_indices.items()):
+                print(i + ' | ', end ='')
+                for k in range(len(self.links)):
+                    print(self.links[j][k], end='')
+                print('')
+    
+    
