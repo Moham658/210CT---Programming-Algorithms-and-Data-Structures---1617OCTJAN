@@ -1,7 +1,5 @@
-List = [3,4,6,8,9,2,4,5,1,0,6,4,5,6]
 
-
-def sub_seq_generator(L):
+def subSeqGenerator(L):
     sub_seq = []
     sub_seq_count = 1
     for i in range(len(List)-1):
@@ -14,4 +12,18 @@ def sub_seq_generator(L):
     return sub_seq
 
 
-print(sub_seq_generator(List))
+def IndexSearch(List):
+    total_to_index = 0
+    value = max(subSeqGenerator(List))
+    up_to_index = List.index(max(value))
+    print(up_to_index)
+    for i in List:
+        if i == value:
+            return total_index
+        else:
+            total_index = total_index+i
+
+    return total_index
+    
+print(subSeqGenerator(List))
+print(linear_search(List))
