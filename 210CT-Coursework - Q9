@@ -1,0 +1,42 @@
+L =  [2,3,5,7,9,13]
+
+low = int(input("Please enter low: "))
+high = int(input("Please enter high: "))
+
+
+
+def binary_interval_search(List, target):
+
+        
+                
+                
+        beggining = 0
+        end = len(List)-1
+
+        while beggining <= end:
+                mid = (beggining+end)//2
+                
+
+                if target == List[mid]:
+                        
+                        return True
+                        
+                elif target < List[mid]:
+                        end = mid -1
+                else:
+                        
+                        beggining = mid +1
+                
+        return False
+
+def interval(List):
+        
+        for i in range (low,high+1):
+                if binary_interval_search(List, i)==True:
+                        return True
+                        break
+                
+                
+
+print(interval(L))
+      
