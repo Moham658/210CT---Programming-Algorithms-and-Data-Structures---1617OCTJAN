@@ -23,13 +23,13 @@ class adjacencyMatrix:
         if (node1 and node2) not in self.nodes: #makes sure nodes exists before adding weight
             return
         else:
-            self.links[self.links_weights[node1]][self.links_weights[node2]] = weight # linking weight value to linked nodes
-            self.links[self.links_weights[node2]][self.links_weights[node1]] = weight
+            self.links[self.links_weights[node1]][self.links_weights[node2]] = unweighted # linking weight value to linked nodes
+            self.links[self.links_weights[node2]][self.links_weights[node1]] = unweighted
 
-
+#----------------------------------------------------------------------------------------------------
 
     def Display(self):
-        print('    ', end = '')
+        print('   ', end = '')
         
         for h, v in sorted(self.links_weights.items()):#prints single Node letters as the header
             print('' + h, end=' ')
@@ -39,16 +39,17 @@ class adjacencyMatrix:
         print('')
         
         for s in range(len(self.links)): # prints underscores seperate header from table
-            print('    '*first_space + t, end=' ')
+            print('   '*first_space + t, end=' ')
             first_space = 0
         print('')
         
         for i, j in sorted(self.links_weights.items()):
-            print(i + ' | ', end ='')
+            print(i + '| ', end ='')
             for k in range(len(self.links)):
                     print(self.links[j][k], end=' ')
-            print('')
+            print('|')
             
+#----------------------------------------------------------------------------------------------------            
 
 
 g = adjacencyMatrix()
@@ -57,6 +58,14 @@ b = Node('B')
 g.addNodes(a)
 g.addNodes(b)
 g.addLinks(a,b)
+
+a = Node('C')
+b = Node('B')
+g.addNodes(a)
+g.addNodes(b)
+g.addLinks('C','B')
+
 g.Display()  
-    
-    
+
+
+
