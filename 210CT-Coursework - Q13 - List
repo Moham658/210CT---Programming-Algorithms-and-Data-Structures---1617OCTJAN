@@ -74,6 +74,7 @@ for i in node_tuples:
     b = Nodes(i[:1])
     aL.addNode(a)
     aL.addNode(b)
+
     
     
 
@@ -82,6 +83,9 @@ for link in node_tuples:
 
   
 aL.displayAdjacencyList()
+
+
+print( '\n' + '-'*60 + '\n' + str(node_tuples) + '\n' + '-'*60 + '\n' )
 
 
 
