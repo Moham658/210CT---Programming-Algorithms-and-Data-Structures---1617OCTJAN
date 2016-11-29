@@ -57,13 +57,44 @@ a = Node('A')
 b = Node('B')
 g.addNodes(a)
 g.addNodes(b)
-g.addLinks(a,b)
+g.addLinks('A','B')
 
 a = Node('C')
 b = Node('B')
 g.addNodes(a)
 g.addNodes(b)
 g.addLinks('C','B')
+
+a = Node('C')
+b = Node('D')
+g.addNodes(a)
+g.addNodes(b)
+g.addLinks('C','D')
+
+a = Node('D')
+b = Node('F')
+g.addNodes(a)
+g.addNodes(b)
+g.addLinks('D','F')
+
+a = Node('F')
+b = Node('E')
+g.addNodes(a)
+g.addNodes(b)
+g.addLinks('F','E')
+
+a = Node('E')
+b = Node('B')
+g.addNodes(a)
+g.addNodes(b)
+g.addLinks('E','B')
+
+a = Node('F')
+b = Node('A')
+g.addNodes(a)
+g.addNodes(b)
+g.addLinks('F','A')
+
 
 g.Display()  
 
