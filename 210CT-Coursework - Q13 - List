@@ -1,1 +1,6 @@
-
+class Nodes:
+    """This class creates variable instances for nodes,
+    two attributes of nodes are name and node neighbouring partners"""
+    def __init__(self,name):
+        self.name = name
+        self.partners = [] #list of node partners
