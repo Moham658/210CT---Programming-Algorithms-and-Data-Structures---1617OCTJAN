@@ -57,19 +57,28 @@ class adjacencyList:
             return True
 
     def displayAdjacencyList(self): # Displays adjacency list graph
+        """Prints list graph in order of character on both y and x axis"""
         for key in sorted(list(self.linked_nodes)):
             print(key +str(self.linked_nodes[key].partners))
 
+node_tuples = ['AB','AS','SC','SG','CF','GF','EH','DC','EC','HG'] #taken from DFS undirected graph (lecture week 7)
 
-print("Adjacency list for following node tuples" + '\n' + '-'*60 )
+print(' '*12 + "|Adjacency list for following tuples|" + '\n' + '-'*60 + '\n' + str(node_tuples) + '\n' + '-'*60 + '\n' )
 
-node_tuples = ['AB','AS','SC','SG','CF','GF','EH','DC','EC','HG']
+
 
 aL = adjacencyList()  
 
+for i in node_tuples:
+    a = Nodes(i[1:])
+    b = Nodes(i[:1])
+    aL.addNode(a)
+    aL.addNode(b)
+    
+    
 
-for links in node_tuples:
-    aL.addLinks(link[1:],link[:1])
+for link in node_tuples:
+    aL.addLinks(link[:1],link[1:])
 
   
 aL.displayAdjacencyList()
