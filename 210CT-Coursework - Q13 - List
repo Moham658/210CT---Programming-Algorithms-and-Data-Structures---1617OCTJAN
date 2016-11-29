@@ -1,6 +1,21 @@
 class Nodes:
     """This class creates variable instances for nodes,
     two attributes of nodes are name and node neighbouring partners"""
+    
     def __init__(self,name):
         self.name = name
         self.partners = [] #list of node partners
+
+
+    def addPartners (self, p):
+    
+        """Takes in partner name and adds it to nodes partner list"""
+        
+        #checks to see if partner already exists before adding it
+        partner_set = set(self.partners)
+        if p in partner_set:
+            return False
+        else:
+            self.partners.append(p)
+            self.partners.sort() # restore the list to store in ordered order
+        
