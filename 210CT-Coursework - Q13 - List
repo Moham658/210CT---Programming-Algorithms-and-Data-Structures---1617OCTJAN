@@ -19,3 +19,23 @@ class Nodes:
             self.partners.append(p)
             self.partners.sort() # restore the list to store in ordered order
         
+
+
+
+class Graph:
+    """ generates a graph to represent relations of nodes """
+    
+    linkedNodes = {} #dictionary storing a collection of nodes as tuples of key:value pair
+
+    def addNode(self, node):
+        """Takes in nodes and stores in linked nodes dictionay"""
+
+        #checks to see if node variable is of a node object AND checks to see if already exists in linkedNode list
+
+        if node.name in self.linkedNodes: # checks to see if nodes already exist
+            if  isinstance not(node, Nodes): # checks if node added is not of same type/class as nodes
+                return False
+
+        else: # adds new node
+            self.linkedNodes[node.name]= node
+            return True
