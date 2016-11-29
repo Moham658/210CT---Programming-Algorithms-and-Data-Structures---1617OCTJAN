@@ -50,9 +50,9 @@ class adjacencyList:
         
         else: # link key:value (set partners for Nodes class)
             for k, v in self.linked_nodes.items(): #iterate through linkedNodes
-                if k is n1: #find node 1 and add node 2 as partner
+                if k is n1: #find node 1 and adds node 2 as partner
                     v.addPartners(n2)
-                if k is n2: #find node 2 and add node 1 as partner
+                if k is n2: #find node 2 and adds node 1 as partner
                     v.addPartners(n1)
             return True
 
@@ -60,6 +60,7 @@ class adjacencyList:
         """Prints list graph in order of character on both y and x axis"""
         for key in sorted(list(self.linked_nodes)):
             print(key +str(self.linked_nodes[key].partners))
+            
 
 node_tuples = ['AB','AS','SC','SG','CF','GF','EH','DC','EC','HG'] #taken from DFS undirected graph (lecture week 7)
 
@@ -67,25 +68,23 @@ print(' '*12 + "|Adjacency list for following tuples|" + '\n' + '-'*60 + '\n' + 
 
 
 
-aL = adjacencyList()  
+aL = adjacencyList()   
 
-for i in node_tuples:
+for i in node_tuples: # iterating through node_tubles to add all possible nodes in node_tubles
+    
     a = Nodes(i[1:])
     b = Nodes(i[:1])
     aL.addNode(a)
     aL.addNode(b)
 
-    
-    
-
-for link in node_tuples:
+for link in node_tuples: # linking nodes in node_tuples
     aL.addLinks(link[:1],link[1:])
 
   
 aL.displayAdjacencyList()
 
 
-print( '\n' + '-'*60 + '\n' + str(node_tuples) + '\n' + '-'*60 + '\n' )
+print( '\n' + '-'*60 + '\n' + str(node_tuples) + '\n' + '-'*60 + '\n' ) #make it look sexy ;) :D
 
 
 
