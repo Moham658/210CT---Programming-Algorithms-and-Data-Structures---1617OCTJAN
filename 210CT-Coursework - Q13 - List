@@ -61,26 +61,19 @@ class adjacencyList:
             print(key +str(self.linked_nodes[key].partners))
 
 
-print("Input key:value links, type Stop or End or Nothing to end input",)
+print("Adjacency list for following node tuples" + '\n' + '-'*60 )
 
-while True:
-    node1 = str(input("Insert key : "))
-    if node1 == 'stop' or node1 == '':
-        break
-       
-    node2 = str(input("Insert value: "))
-    if node2 == 'stop' or node2 == '' :
-       break
-    
-    if len(node1) and len(node2) == 1 and node1 or node2 != int :       
-        aL = adjacencyList()
-        node_1 = Nodes(node1)
-        aL.addNode(node_1)
-        node_2 = Nodes(node2)
-        aL.addNode(node_2)
-        aL.addLinks(node1, node2)
-        
-aL = adjacencyList()
+node_tuples = ['AB','AS','SC','SG','CF','GF','EH','DC','EC','HG']
+
+aL = adjacencyList()  
+
+
+for links in node_tuples:
+    aL.addLinks(link[1:],link[:1])
+
+  
 aL.displayAdjacencyList()
+
+
 
 
