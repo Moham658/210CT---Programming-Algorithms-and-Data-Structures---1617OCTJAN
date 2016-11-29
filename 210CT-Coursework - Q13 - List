@@ -18,8 +18,6 @@ class Nodes:
         else:
             self.partners.append(p)
             self.partners.sort() # restore the list to store in ordered order
-        
-
 
 
 class Graph:
@@ -39,3 +37,22 @@ class Graph:
         else: # adds new node
             self.linkedNodes[node.name]= node
             return True
+
+
+    def addLinks(self, n1, n2):
+        """ takes in two nodes of key:value and links them together """
+        
+        #checks if both n1 and n2 exist in linkedNodes collection
+        
+        if n1 and n2 not in self.linkedNodes:
+            return False
+
+        
+        else: # link key:value (set partners for Nodes class)
+            for k, v in self.linkedNodes.items(): #iterate through linkedNodes
+                if k is n1: #find node 1 and add node 2 as partner
+                    v.addPartners[n2]
+                if k is n2: #find node 2 and add node 1 as partner
+                    v.addPartners[n1]
+            return True
+    
