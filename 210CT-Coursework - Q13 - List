@@ -6,9 +6,6 @@ class Nodes:
     
     
     def __init__(self,name):
-        
-        
-        
         self.name = name
         self.partners = list() #list of node partners
         
@@ -20,7 +17,7 @@ class Nodes:
         """Takes in partner name and adds it to nodes partner list"""
         
         #checks to see if partner already exists before adding it
-        partner_set = set(self.partners) #converts neighbours list to a set
+        partner_set = set(self.partners) #converts partners list to a set
         
         if p in partner_set:
             return False
@@ -34,24 +31,25 @@ class adjacencyList:
     """ generates a graph to represent relations of nodes """
     
     linked_nodes = {}#dictionary storing a collection of nodes as tuples of key:value pair
-    l = {} 
+    single_nodes = {} 
         
     def addNode(self, node):
-        """Takes in nodes and stores in linked nodes dictionay"""
+        """Takes in nodes and stores in single_node and linked nodes dictionary"""
 
-
-        if isinstance (node, Nodes) and node.name not in self.l:
-            self.l[node.name] = node
+        if isinstance (node, Nodes) and node.name  in self.single_nodes:
+            self.single_nodes[node.name] = node
 
         #checks to see if node variable is of a node object AND checks to see if already exists in linkedNode list
-        if  isinstance (node, Nodes) and node.name not in self.linked_nodes:
-            self.linked_nodes[node.name]= node # adds new node
-            return True 
-
-        else: 
-            return False
+        if not isinstance (node, Nodes):
+            
+            if node.name in self.linked_nodes:
         
-        i
+                return False 
+        else:
+            
+            self.linked_nodes[node.name]= node # adds new node
+        
+        
 
     def addLinks(self, n1, n2):
         """ takes in two nodes of key:value and links them together """
@@ -78,34 +76,9 @@ class adjacencyList:
             print(key + str(self.linked_nodes[key].partners))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-           
-#--------------------------------------------------------------------------------------------------------------
-
-
-    
         print('\n' *3 + "DFS Order Of Traversed Nodes" + '\n' + str(self.traversed))
         
         print('\n'*2 + 'Topological order' + '\n'*2 + str(self.topological))
-
-
 
 #--------------------------------------------------------------------------------------------------------------      
 
@@ -116,10 +89,8 @@ class adjacencyList:
 
         output_sequence.close()
                 
-
-        
-
 #--------------------------------------------------------------------------------------------------------------
+
     topological = []
     traversed = [] 
     def dfs(self, node):
@@ -134,24 +105,16 @@ class adjacencyList:
                 if self.linked_nodes[n].status == 'unvisited':
                         self.dfs(self.linked_nodes[n])
                         
-        self.traversed.append(node.name)          
-              
+        self.traversed.append(node.name)
         
-       
-            
-            
 #----------------------------------------------------------------------------------------------------------------        	
-   
-            
-                    
-
-            
-aL = adjacencyList()
-
+        
+aL = adjacencyList()                   
 
 links = ['AB' ,'AS','SC','SG','CF','GF','EH','DC','EC','HG'] #taken from DFS undirected graph (lecture week 7)
 
 
+	
 a = Nodes('A')
 aL.addNode(a)
 b = Nodes('B')
@@ -171,15 +134,15 @@ aL.addNode(h)
 s = Nodes('S')
 aL.addNode(s)
 
-print(' '*12 + "|Adjacency list for following linked nodes|" + '\n' + '-'*60 + '\n' + str(links) + '\n' + '-'*60 + '\n' )
-
-
 for l in links:
 	aL.addLinks(l[:1], l[1:])
+
+
+#----------------------------------------------------------------------------------------------------------------  
 	
 aL.dfs(a)
 
-
+print(' '*12 + "|Adjacency list for following linked nodes|" + '\n' + '-'*60 + '\n' + str(links) + '\n' + '-'*60 + '\n' )
 
 aL.displayAdjacencyList()
 
