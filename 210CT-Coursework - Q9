@@ -1,7 +1,3 @@
-
-
-
-
 def subSeqGenerator(L):
     sub_seq = []
     sub_seq_count = 1
