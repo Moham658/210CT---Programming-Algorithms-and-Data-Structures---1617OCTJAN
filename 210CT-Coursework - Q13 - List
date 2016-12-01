@@ -94,7 +94,7 @@ class adjacencyList:
         print ('\n' * 2 + 'DFS Order Of Traversed Nodes' + '\n' + str(self.traversed))
             
 
-        print ('\n' * 2 + 'Topological order' + '\n' + str(self.topological))
+        print ('\n' * 2 + 'DFS Order Of Traversed Nodes' + '\n' + str(self.topological))
             
 
         
