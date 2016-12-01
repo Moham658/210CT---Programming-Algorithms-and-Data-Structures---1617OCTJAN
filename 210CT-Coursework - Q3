@@ -1,6 +1,8 @@
 from math import sqrt 
 
 #-----------------------------------*SECTION 1*-----------------------------------
+
+
 # Avoiding Errors inside of the expected number input i.e. 13fwq2 or a negative number
 try:
     get_num = float(input("Enter any number greater than 0 to get the highest perfect square to the input: "))
@@ -13,6 +15,8 @@ except ValueError:
         
       
 #-----------------------------------*SECTION 2*-----------------------------------
+
+
 # calculating the factorial of the input
 def highestPerfectSquare(n):
     """Calculates the highest perfect square which is less or equal to its parameter"""
@@ -42,6 +46,8 @@ def highestPerfectSquare(n):
       return ceil_square
     
 #-----------------------------------*SECTION 3*-----------------------------------
+
+
 # prints the value of the Highest square but avoids errors when calculating other than positive numbers 
 try:
     print('\n' + "Highest perfect square  = " + '\n' + str(highestPerfectSquare(get_num)))
