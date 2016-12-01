@@ -28,7 +28,7 @@ class Nodes:
  
 # --------------------------------------------------------------------------------------
  
-class adjacencyList:
+class adjacencyList: #graph
  
     """ generates a graph to represent relations of nodes """
  
