@@ -1,4 +1,4 @@
-from math import sqrt #sqrt finds the square root of numbers
+from math import sqrt 
 
 #-----------------------------------*SECTION 1*-----------------------------------
 # Avoiding Errors inside of the expected number input i.e. 13fwq2 or a negative number
@@ -55,6 +55,3 @@ except NameError:
 
     
 #---------------------------------------------------------------------------------
-
-
-
