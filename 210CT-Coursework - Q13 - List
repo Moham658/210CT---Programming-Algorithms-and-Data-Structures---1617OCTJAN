@@ -1,80 +1,81 @@
-class Nodes:
 
+class Nodes:
+ 
     """This class creates variable instances for nodes,
 ....two attributes of nodes are name and node neighbouring partners"""
-
+ 
     def __init__(self, name):
         self.name = name
         self.partners = list()  # list of node partners
-
+ 
         self.status_dfs = 'unvisited'
         self.status_bfs = 'unvisited'
         self.distance = 10
         
     def addNext(self, p):
         """Takes in partner name and adds it to nodes partner list"""
-
+ 
         # checks to see if partner already exists before adding it
-
+ 
         partner_set = set(self.partners)  # converts partners list to a set
-
+ 
         if p in partner_set:
             return False
         else:
             self.partners.append(p)
             self.partners.sort()  # restore the list to store in ordered order
-
-
+ 
+ 
 # --------------------------------------------------------------------------------------
-
+ 
 class adjacencyList:
-
+ 
     """ generates a graph to represent relations of nodes """
-
+ 
     linked_nodes = {}  # dict with collection of nodes as tuples of key:value pair
     single_nodes = {}  # individual nodes
-
+ 
     def addNode(self, node):
         """Takes in nodes and stores in single_node and linked nodes dictionary"""
-
+ 
         if isinstance(node, Nodes) and node.name in self.single_nodes:
             self.single_nodes[node.name] = node
-
+ 
         # checks if node variable is of a node object AND
         # checks to see if already exists in linkedNode list
-
+ 
         if not isinstance(node, Nodes):
-
+ 
             if node.name in self.linked_nodes:
-
+ 
                 return False
         else:
-
+ 
             self.linked_nodes[node.name] = node  # adds new node
-
+ 
     def addLinks(self, n1, n2):
         """ takes in two nodes of key:value and links them together """
-
+ 
         # checks if both n1 and n2 exist in linkedNodes collection
-
+ 
         if n1 not in self.linked_nodes and n2 not in self.linked_nodes:
-
+ 
             return False
         else:
-
+ 
               # link key:value (set partners for Nodes class)
-
+ 
             for (k, v) in self.linked_nodes.items():  # iterate through linkedNodes
                 if k is n1:  # find node 1 and adds node 2 as partner
                     v.addNext(n2)
                 if k is n2:  # find node 2 and adds node 1 as partner
                     v.addNext(n1)
     for_text_file = []
-
-
-
+ 
+ 
+ 
 # --------------------------------------------------------------------------------------
-
+ 
     def displayAdjacencyList(self):  # Displays adjacency list graph
         """Prints list graph in order of character on both y and x axis"""
         
@@ -82,31 +83,31 @@ class adjacencyList:
         for key in sorted(list(self.linked_nodes.keys())):
             self.for_text_file.append(key + ' = ' +str(self.linked_nodes[key].distance))
             print (key + str(self.linked_nodes[key].partners))
-
+ 
         print('\n' * 2 + 'BFS Topological order' + '\n' + str(self.rem_dup))
             
-
+ 
         print('\n' * 2 + 'BFS Distance from source Node' + str(self.node_name))
         
         for key in sorted(list(self.linked_nodes.keys())):
             print(str(self.node_name).strip("[]''") + " -> " + key + " = "+ str(self.linked_nodes[key].distance))
-
+ 
         print ('\n' * 2 + 'DFS Order Of Traversed Nodes' + '\n' + str(self.traversed))
             
-
+ 
         print ('\n' * 2 + 'DFS Order Of Traversed Nodes' + '\n' + str(self.topological))
             
-
+ 
         
-
+ 
 # --------------------------------------------------------------------------------------
-
+ 
         #writing traversals into out_put text file
-
+ 
         output_sequence = open('Sequence Traversed.txt', 'w') 
-
+ 
         with open('Sequence Traversed.txt', 'a') as update:
-
+ 
             update.write(' ' * 20 + 'Breadth-first-search & Depth-first-search'+ '\n'+ ' '* 30 +'For Adjacency list'
                          +'\n' + '-'* 100 + '\n' * 2)
             
@@ -117,26 +118,26 @@ class adjacencyList:
             update.write('\n' * 4 + 'DFS Topological order' + '\n'* 2 + str(self.topological))
             
             update.write('\n' * 4 + 'DFS Order Of Traversed Nodes' + '\n' * 2 + str(self.traversed))
-
+ 
         output_sequence.close()
-
+ 
 # --------------------------------------------------------------------------------------
-
+ 
     topological = []
     traversed = []
-
+ 
     def dfs(self, node):
         
         self.topological.append(node.name)
         self.traversed.append(node.name)
-
+ 
         node.status_dfs = 'visited'
         for n in node.partners:
             if self.linked_nodes[n].status_dfs == 'unvisited':
                 self.dfs(self.linked_nodes[n])
-
+ 
         self.traversed.append(node.name)
-
+ 
 # --------------------------------------------------------------------------------------
     node_path = [] #visited path starting from node
     rem_dup = [] # final path with no duplicate letters
@@ -158,28 +159,28 @@ class adjacencyList:
             v = queue.pop(0) 
             node_v = self.linked_nodes[v] 
             node_v.status_bfs = 'visited' # all nodes appended to que = visited
-
+ 
             for p in node_v.partners: #individual neighbors of visited nodes
                 node_p = self.linked_nodes[p] #list of nieghbors of visited node will be node_p
                 if node_p.status_bfs == 'unvisited': # if not visited than append to queue
                     queue.append(p)
                     if node_p.distance > node_v.distance + 1: #if unvisited (distance = 100) is greater than visited
                         node_p.distance = node_v.distance + 1 # append unvisited 1 greater than last visited
-
+ 
             self.node_path.append(v)
-
+ 
             
         for i in self.node_path:
             if i not in self.rem_dup:
                 self.rem_dup.append(i)#removing duplicates
                 
 # --------------------------------------------------------------------------------------
-
+ 
     
             
 aL = adjacencyList() #loading graph
-
-links = [  # taken from DFS undirected graph (lecture week 7)
+ 
+links = [  # taken from DFS/BFS  undirected graph (lecture week 7)
     'AB',
     'AS',
     'SC',
@@ -210,18 +211,18 @@ h = Nodes('H')
 aL.addNode(h)
 s = Nodes('S')
 aL.addNode(s)
-
+ 
 for l in links: # link all nodes displayed in links
     aL.addLinks(l[:1], l[1:])
-
+ 
 # --------------------------------------------------------------------------------------
-
+ 
 aL.bfs(a) #breadth first search
 aL.dfs(a) #depth first search
-
+ 
 print (' ' * 12 + '|Adjacency list for following linked nodes|' + '\n' \
     + '-' * 60 + '\n' + str(links) + '\n' + '-' * 60 + '\n')
-
+ 
 aL.displayAdjacencyList()
-
+ 
 print ('\n' * 2 + '-' * 60 + '\n')
