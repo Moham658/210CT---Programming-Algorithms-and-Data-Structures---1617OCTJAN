@@ -1,0 +1,56 @@
+L = [ 2, 3, 5, 7, 9, 13 ]
+ 
+# ----------------------------------------------------------------------
+# avoids errors when inputting other than integers
+ 
+try:
+    low = int(input('Please enter low: '))
+    high = int(input('Please enter high: '))
+except ValueError:
+ 
+    print ('Low and high must be integers')
+ 
+ 
+# ----------------------------------------------------------------------
+ 
+def binary_search(List, target):
+    """This function uses binary search for a specific element required"""
+ 
+    beggining = 0
+    end = len(List) - 1
+    while beggining <= end:  # stop from constantly searching
+        mid = (beggining + end) // 2  # generating number for middle index of list
+ 
+        if target == List[mid]: # checks to see if middle index = what were looking for
+            return True
+ 
+        if target < List[mid]: # halfs list (from bottom up) and starts search again if target is less than middle
+            end = mid - 1
+ 
+            
+        else: # does the same as IF statement above only from last element downwards
+            beggining = mid + 1
+ 
+    return False
+ 
+ 
+def exists(List):
+    """This function uses binary to search if any of each of the integers inbetween high and low
+           exists"""
+ 
+    for i in range(low, high + 1):  # search within low upto and including high
+        if binary_search(List, i) == True:  # searching through list via binary search for each element inbetween low-high
+            return True
+            break  # stop from searching after any ONE of the integer inbetween low-high is found
+ 
+ 
+# ----------------------------------------------------------------------
+# avoids errors when printing other than integer input
+ 
+try:
+    print (exists(L))
+except NameError:
+ 
+    print ('')
+
+
