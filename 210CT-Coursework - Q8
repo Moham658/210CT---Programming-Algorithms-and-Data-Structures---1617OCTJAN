@@ -1,21 +1,25 @@
 #---------------------------------------------------------------------------------
-
+ 
 get_string = input("Input string to remove its vowels: ")
-
+ 
 #---------------------------------------------------------------------------------
-
+ 
 def removeVowels(string):
     """Function removes vowels from sentence"""
-
-    if not string: # empty string to avoid IndexError
-        return ''#returns empty string to avoid TypeError of NoneType object to str
+    try:
+ 
+        if string[0] in "AaEeIiOoUu": # if first character has a vowel
+            return removeVowels(string[1:]) # remove character and process characters after it
+        return string[0] + removeVowels(string[1:]) # if no vowels return string character and process after it
     
-    elif string[0] in "AaEeIiOoUu": # if first character has a vowel
-        return removeVowels(string[1:]) # remove character and process characters after it
-    return string[0] + removeVowels(string[1:]) # if no vowels return string character
-
+    except IndexError:
+        return ''#avoids empty string errors
 #---------------------------------------------------------------------------------
-
+ 
 print(removeVowels(get_string))
-
+ 
 #---------------------------------------------------------------------------------
+
+
+
+
