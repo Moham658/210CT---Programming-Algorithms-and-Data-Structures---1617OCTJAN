@@ -1,0 +1,73 @@
+class BinTreeNode(object):
+ 
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+ 
+ 
+def tree_insert(tree, item):
+    if tree == None:
+        tree = BinTreeNode(item)
+    else:
+        if item < tree.value:
+            if tree.left == None:
+                tree.left = BinTreeNode(item)
+            else:
+                tree_insert(tree.left, item)
+        else:
+            if tree.right == None:
+                tree.right = BinTreeNode(item)
+            else:
+                tree_insert(tree.right, item)
+    return tree
+ 
+ 
+def postorder(tree):
+    if tree.left != None:
+        postorder(tree.left)
+    if tree.right != None:
+        postorder(tree.right)
+    print(tree.value)
+ 
+ 
+# -------------------------------------------------------------------
+ 
+def inOrder(tree):
+ 
+    stack = []
+ 
+    while stack != None:  # continues until stack is empty
+ 
+        if tree != None:
+            stack.append(tree)  # puts selected node inside the stack
+            tree = tree.left  # selected node set to left
+        elif stack != None:
+            if len(stack) == 0:  # avoids error removing from empty stack list
+                break
+ 
+            tree = stack.pop(-1)
+            print (tree.value)
+            tree = tree.right  # puts selected node to the right
+ 
+ 
+# -------------------------------------------------------------------
+ 
+if __name__ == '__main__':
+ 
+    t = tree_insert(None, 6)
+    tree_insert(t, 10)
+    tree_insert(t, 5)
+    tree_insert(t, 2)
+    tree_insert(t, 3)
+    tree_insert(t, 4)
+    tree_insert(t, 11)
+    tree_insert(t, 131)
+    tree_insert(t, 167)
+    tree_insert(t, 311)
+    tree_insert(t, 1991)
+    tree_insert(t, 711)
+    tree_insert(t, 121)
+    tree_insert(t, 115)
+    inOrder(t)
+
