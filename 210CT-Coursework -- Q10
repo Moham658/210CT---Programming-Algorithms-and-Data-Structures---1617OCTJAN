@@ -1,0 +1,58 @@
+def subSeqGenerator(L):
+
+    """This function generates a list of number of or sequences
+       in ascending order"""
+
+    sub_seq = [] #sub-sequence count - list
+    sub_seq_count = 1 #  sub-sequence counter of ascended order
+
+    for i in range(len(List)-1): 
+        if List[i]>List[i+1]:
+            sub_seq.append(sub_seq_count)#if number after is less than before, append current count
+            sub_seq_count = 1 #reset counter
+
+        else:
+            sub_seq_count +=1 #increase as long as number after is greater than before
+    sub_seq.append(sub_seq_count)   #update loop
+
+    return sub_seq
+ 
+ 
+def MaxSubSequence(List): 
+    """This function finds greatest count inside sub-sequence list
+       and returns them in a separate list"""
+    output_list = []
+    total_to_index = 0
+    sub_seq = subSeqGenerator(List)  #generating sub sequence
+    up_to_index = sub_seq.index(max(sub_seq)) # storing index for max sub-sequence
+    
+    for i in range(0, up_to_index):
+        total_to_index = total_to_index + sub_seq[i] #adding total count for previous sub elements
+ 
+    
+    for i in range(max(sub_seq)): #looping to get all numbers in max sub-sequence
+        output_list.append(List[total_to_index]) #start after last element of previous subsequence
+        total_to_index += 1  #updating to get next element
+ 
+ 
+    return output_list
+ 
+#-----------------------------------------------------------------------------
+ 
+ 
+#avoids errors when inputting other than integers
+ 
+try:
+ 
+    List = [1,6,7,8,9,3,9,10,11,2,18,9,10,11,4,5,1,2,6,7,8,9,10,6,1,2,3,4,
+            5,6,7,8,9,10,11,12,13]
+    
+    print("Max sub-sequence from list " + '\n'*2 + str(List) + '\n'*2 +
+          "is " + '\n'*2 + str(MaxSubSequence (List)))
+    
+except NameError:
+    print("List must only contain integers")
+
+
+
+
