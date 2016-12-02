@@ -1,4 +1,3 @@
-
 class Nodes:
  
     """This class creates variable instances for nodes,
@@ -10,7 +9,7 @@ class Nodes:
  
         self.status_dfs = 'unvisited'
         self.status_bfs = 'unvisited'
-        self.distance = 10
+        self.distance = 100
         
     def addNext(self, p):
         """Takes in partner name and adds it to nodes partner list"""
@@ -28,7 +27,7 @@ class Nodes:
  
 # --------------------------------------------------------------------------------------
  
-class adjacencyList: #graph
+class adjacencyList: # graph
  
     """ generates a graph to represent relations of nodes """
  
@@ -180,7 +179,7 @@ class adjacencyList: #graph
             
 aL = adjacencyList() #loading graph
  
-links = [  # taken from DFS/BFS  undirected graph (lecture week 7)
+links = [  # taken from DFS/BFS undirected graph (lecture week 7)
     'AB',
     'AS',
     'SC',
