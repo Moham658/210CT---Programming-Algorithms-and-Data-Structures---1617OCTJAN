@@ -1,5 +1,5 @@
 from math import sqrt 
-
+ 
 #-----------------------------------*SECTION 1*-----------------------------------
 
 
@@ -27,21 +27,21 @@ def highestPerfectSquare(n):
   
     
     root_n = sqrt(n)  #calculate the square root of the number
-
+ 
     floor_of_sqrt = int(root_n) # Round the square root to the lower integer (One level down)
     ceil_of_sqrt  = floor_of_sqrt + 1 # Round the square root to the higher integer (One level up)
-
+ 
     floor_square  = floor_of_sqrt**2 #Square both rounded numbers to get the Perfect Square Value
     ceil_square   = ceil_of_sqrt**2
-
+ 
     
     """Compares closest square number to the original parameter(n) to return it"""
     floor_comparison = n - floor_square
     ceil_comparison  = ceil_square - n
-
+ 
     if floor_comparison < ceil_comparison:
       return floor_square
-
+ 
     else:
       return ceil_square
     
@@ -51,13 +51,14 @@ def highestPerfectSquare(n):
 # prints the value of the Highest square but avoids errors when calculating other than positive numbers 
 try:
     print('\n' + "Highest perfect square  = " + '\n' + str(highestPerfectSquare(get_num)))
-
+ 
     sqrt_highest = str(int(sqrt(highestPerfectSquare(get_num)))) # square root of the highest perfect square
     
     print('\n' + "Where Perfect square = " + sqrt_highest + " x " + sqrt_highest )
     
 except NameError:
     print('\n')
-
+ 
     
 #---------------------------------------------------------------------------------
+
