@@ -1,50 +1,45 @@
-#-------------------------------------*Section 1*---------------------------------
-
 try: # catch any errors where input is not an integer
     n = int(input("Please Enter an integer between 1 to 1954 to see if its a prime: "))
-
+ 
     #-------------------------------------*Section 2*-----------------------------
-
-    def isPrime(n, d = True): # l is the divisor with need of input
+ 
+    def isPrime(n, d = n-1): # d is the divisor one below n
         """Find if integer is Prime Recursively"""
         
         #-------------------------------------*Section 3--------------------------
-
+ 
         try:    # catch any errors where input does not exceed recursion limit
-
+ 
             #-------------------------------------*Section 4*---------------------
-
+ 
             if n <= 0: # Integer has to be positive
                 print("Negative Numbers cannot be prime")
                 return
             
             if n == 1: 
                 print (str(n) + ' is not a prime.')
-                return
-            
-            
-            if d is True: 
-                d = n - 1 # sets divisor one below input
+                return            
+ 
                 
             while d >= 2: # divides input between input -1 downto 2
-                if n % d == 0: # checks to see if input is not a prime
+                if n % d == 0: # primes can only be divided by 1 and its self
                     print (str(n) + ' is not a prime.')
                     break # needed since divisor will always be greater than 1
                 else:
                     return isPrime(n, d-1) # recursion to iterate downto
             else: # if input has no remainders then its a prime
                 print (str(n) + ' is a prime.')
-
+ 
         #-------------------------------------*Section 3--------------------------
                 
         except RecursionError:
             print("Recursive code has a limit when calling itself, enter between 1 to 1954")
-
+ 
     #-------------------------------------*Section 2*-----------------------------
-
+ 
     isPrime(n)
-
+ 
 #-------------------------------------*Section 1*---------------------------------
-
+ 
 except ValueError:
     print("Input a valid integer")
