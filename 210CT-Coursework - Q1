@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package shufflearray;
-
+ 
 /**
+ * This class randomly shuffles an array of elements.   
  *
- * @author Ahmed
+ * @author Ahmed Mohammed 6790914
  */
-
-
+ 
+ 
 public class FisherYates {
-
+ 
     /**
      * @param args the command line arguments
      */
@@ -29,18 +26,26 @@ public class FisherYates {
     
     
    
-    public static void Shuffle(Object[] array) {
+    /** 
+     * This method shuffles an array of objects
+     * 
+     * @param array The input array that will be shuffled. can be a mixture of object types
+     */
+     public static void Shuffle(Object[] array) {
         
-        int ElementsInArray = array.length;
+        int elements_in_array = array.length; // length of the array
         
-        for (int i = 0; i < array.length; i++){
+        for (int i = 0; i < array.length; i++){ // loop through the array
             
-            int Random = (int)(Math.random()* (ElementsInArray - 1));
+            int Random = (int)(Math.random()* (elements_in_array - 1));   // generate a random position in  the array
             
-            Object TempElement = array[Random];
+            // we now swap two elements in the array. we need a temp so we dont overwrite
+            Object TempElement = array[Random]; 
             array[Random] = array[i];
             array[i] = TempElement;
             
         }
     }
 }
+
+
